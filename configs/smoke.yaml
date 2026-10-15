@@ -1,0 +1,36 @@
+paper:
+  slug: stable-hash-generation-for-efficient-privacy-preserving-face-identific
+  title: "Stable Hash Generation for Efficient Privacy-Preserving Face Identification"
+data:
+  celeba_root: ../../datasets/celeba/extracted/celeba
+  lfw_root: ../../datasets/lfw
+  calfw_root: ../../datasets/calfw/extracted/calfw-hf
+  cplfw_root: ../../datasets/cplfw/extracted/cplfw-hf
+  root: ../../datasets/celeba/extracted/celeba
+  train_ratio: 0.7
+  max_images: 1024
+model:
+  image_size: 112
+  emb_dim: 128
+  pretrained: true
+hash:
+  M: 4
+  K: 8
+  max_fit: 1024
+train:
+  protocol: smoke
+  seed: 42
+  num_workers: 2
+  batch_size: 32
+  epochs: 1
+  lr: 0.05
+eval:
+  batch_size: 64
+  max_lfw_pairs: 200
+  max_gallery: 100
+paths:
+  checkpoint_dir: outputs/checkpoints/smoke
+  log_dir: outputs/logs/smoke
+  pred_dir: outputs/predictions/smoke
+  figure_dir: outputs/figures/smoke
+device: cuda
